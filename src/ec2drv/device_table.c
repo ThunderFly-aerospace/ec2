@@ -3111,5 +3111,34 @@ DEVICE devices[] =
 		{{1,0x8d},{1,0xab},{1,0xce},{1,0xd2}},	// C2 SFRs Breakpoint low addr
 		{{1,0x8e},{1,0xac},{1,0xcf},{1,0xd3}},	// C2 SFRs Breakpoint high addr
 	},
+	{
+		// C2
+		"SI1060",	// Device Name
+		0x16,			// Device id (Family)
+		0xe0,			// Device unique id
+		-1,			// Device revision (-1 = any match
+		0x10000,			// Flash Size (Marketing number)
+		1024,			// Flash Sector Size
+		4096,			// XRAM Size
+		TRUE,			// Has External Bus
+		FALSE,			// Tested by ec2drv developers
+		FLT_SINGLE,			// Flash lock type
+		-1,			// Read lock
+		-1,			// Write lock
+		0xfbff,			// Single lock
+		0xfc00,			// Reserved Flash bottom addr
+		-1,			// Reserved Flash top addr
+		TRUE,			// Has flash scratchpad (SFLE)
+		0x0000,			// Scratch start addr (SFLE=1)
+		0x0400,			// Scratchpad length (bytes)
+		0x0400,			// Scratchpad sector size (bytes)
+		TRUE,			// Has Pages SFR registers
+		0xa7,			// SFRPAGE register address 
+		FALSE,			// USB FIFO size
+		0,			// Has Cache
+		C2,			// Debug Mode (JTAG /C2)
+		{{1,0x85},{1,0xab},{1,0xce},{1,0xd2}},	// C2 SFRs Breakpoint low addr
+		{{1,0x86},{1,0xac},{1,0xcf},{1,0xd3}},	// C2 SFRs Breakpoint high addr
+	},
 	{0}}
 ;

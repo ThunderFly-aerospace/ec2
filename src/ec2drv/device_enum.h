@@ -113,5 +113,6 @@ typedef enum {
 	SI1000 = 0xd0,
 	SI1001 = 0xd1,
 	SI1021 = 0xe1,
-	SI1031 = 0xf1
+	SI1031 = 0xf1,
+	SI1060 = 0xe0
 }DEVICE_ENUM;
