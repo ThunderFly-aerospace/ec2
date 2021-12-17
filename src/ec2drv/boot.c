@@ -94,7 +94,10 @@ BOOL boot_write_flash_page( EC2DRV *obj, uint8_t *buf, BOOL do_xor )
 		int k;
 		uint16_t offset=0;
 		for(k=0; k<8; k++, offset+=63 )
+		{
 			write_port( obj, (char*)out_buf+offset, 63 );
+			usleep(2000);
+		};
 		// now the 8 left over bytes 
 		write_port( obj, (char*)out_buf+offset, 8 );
 	}
