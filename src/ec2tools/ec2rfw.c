@@ -134,6 +134,7 @@ int main(int argc, char *argv[])
 		for(j=0;j<BUFLEN;j++)
 		{
 			buf[j] = boot_read_byte(&ec2obj, addr+j);
+			usleep(1000); // without this fw read times out after a few hundred bytes (guess is that faster CPUs overload the buffer)
 		}
 		write(out, buf, BUFLEN);
 		if(fw_only)

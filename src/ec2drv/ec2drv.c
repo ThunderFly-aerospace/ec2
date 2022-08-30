@@ -2148,7 +2148,12 @@ ready:
 		USB_ERROR("usb_get_string_simple",r);
 //	printf("s='%s'\n",s);
 	
-#ifdef HAVE_USB_DETACH_KERNEL_DRIVER_NP
+// During the change of the build system from autoconf to cmake, the 
+// macro HAVE_USB_DETACH_KERNEL_DRIVER_NP definition disappeared and thus on linux
+// system the following section becomes ineffective resulting in not being
+// able to access the EC3 device - unless the kernel drivers are told to not bind
+// the EC3 device. It is better to reference the correct macro from the usb.h instead.
+#ifdef LIBUSB_HAS_DETACH_KERNEL_DRIVER_NP
 	// On linux we force the inkernel drivers to release the device for us.	
 	// can't do too much for other platforms as this function is platform specific
 	// lets hope they don't try and claim this device.
@@ -2172,7 +2177,7 @@ void close_ec3( EC2DRV *obj )
 {
 	DUMP_FUNC();
 	int r;
-#ifdef HAVE_USB_DETACH_KERNEL_DRIVER_NP
+#ifdef LIBUSB_HAS_DETACH_KERNEL_DRIVER_NP
 	r = usb_detach_kernel_driver_np( obj->ec3, 0);
 	if(r<0)
 		USB_ERROR("usb_detach_kernel_driver_np",r);
