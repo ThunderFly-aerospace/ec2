@@ -3,6 +3,11 @@ ec2drv Specific Information
 
 [mjs: updated for git and Mac OS X building]
 
+## Ubuntu dependencies
+
+  sudo apt-get install libreadline-dev
+
+
 If you got the source from Git:
 -------------------------------
 
