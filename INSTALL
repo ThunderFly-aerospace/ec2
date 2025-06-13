@@ -5,7 +5,7 @@ ec2drv Specific Information
 
 ## Ubuntu dependencies
 
-  sudo apt-get install libreadline-dev
+  sudo apt-get install libreadline-dev libusb-dev
 
 
 If you got the source from Git:
