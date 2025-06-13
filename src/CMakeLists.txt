@@ -1,4 +1,10 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.10)
+
+option(DETACH_KERNEL_DRIVER "Detach kernel driver in libusb" ON)
+
+if(DETACH_KERNEL_DRIVER)
+  add_definitions(-DLIBUSB_HAS_DETACH_KERNEL_DRIVER_NP)
+endif()
 
 CMAKE_POLICY(SET CMP0079 NEW)
 
@@ -25,3 +31,4 @@ include_directories(debug-core)
 include_directories(devel-tools)
 include_directories(ec2tools)
 include_directories(newcdb)
+
