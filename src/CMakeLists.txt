@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.10)
 
-option(DETACH_KERNEL_DRIVER "Detach kernel driver in libusb" ON)
+if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+  option(DETACH_KERNEL_DRIVER "Detach kernel driver in libusb" ON)
+endif()
 
 if(DETACH_KERNEL_DRIVER)
   add_definitions(-DLIBUSB_HAS_DETACH_KERNEL_DRIVER_NP)
